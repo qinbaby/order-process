@@ -1,12 +1,15 @@
-package com.warehouse.sellercube.common;
+package com.warehouse.sellercube.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by chenjing on 2017/4/11.
+ * 多线程配置
  */
+@Component
 public class ApplicationContextProvider implements ApplicationContextAware {
     private static ApplicationContext context;
 

@@ -1,6 +1,5 @@
 package com.warehouse.sellercube.thread;
 
-import com.warehouse.sellercube.server.order.mysql.entity.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -16,10 +15,14 @@ public class MoniotrTask extends Thread {
     private final static Logger logger= LoggerFactory.getLogger(MoniotrTask.class);
 
     //参数封装
-    private Test test;
+    private String test;
 
-    public void setMonitor(Test monitor) {
-        this.test = monitor;
+    public void setMonitor(String param) {
+        this.test = param;
+    }
+
+    public String getTest() {
+        return test;
     }
 
     @Override
