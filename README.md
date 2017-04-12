@@ -5,4 +5,4 @@
 * RESTful API地址
 	* http://localhost:8888/swagger-ui.html
 * Request url must carry HTTP header
-	*HTTP header is Authorization and value must equals 123456
+	* HTTP header is Authorization and value must equals 123456
