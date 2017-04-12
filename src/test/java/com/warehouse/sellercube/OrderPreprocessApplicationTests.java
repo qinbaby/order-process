@@ -1,6 +1,5 @@
 package com.warehouse.sellercube;
 
-import com.warehouse.sellercube.JMS.Sender;
 import com.warehouse.sellercube.server.order.mysql.service.TestService;
 import com.warehouse.sellercube.server.order.sqlserver.service.TestsqlserverService;
 import org.junit.Test;
@@ -26,10 +25,10 @@ public class OrderPreprocessApplicationTests {
 
 	}
 
-	@Autowired
+/*	@Autowired
 	private Sender sender;
 	@Test
 	public void hello() throws Exception {
 		sender.send();
-	}
+	}*/
 }

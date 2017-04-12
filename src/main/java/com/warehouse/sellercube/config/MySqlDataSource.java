@@ -74,10 +74,6 @@ public class MySqlDataSource {
         return reg;
     }
 
-    /**
-     * druid监控过滤
-     * @return
-     */
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();

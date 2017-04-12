@@ -1,3 +1,4 @@
+/*
 package com.warehouse.sellercube.JMS;
 
 import org.springframework.amqp.core.AmqpTemplate;
@@ -6,9 +7,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+*/
 /**
  * Created by chenjing on 2017/4/11.
- */
+ *//*
+
 @Component
 public class Sender {
     @Autowired
@@ -21,3 +24,4 @@ public class Sender {
         }
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.warehouse.sellercube.JMS;
 
 import org.slf4j.Logger;
@@ -6,9 +7,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  * Created by chenjing on 2017/4/11.
- */
+ *//*
+
 @Component
 @RabbitListener(queues = "hello")
 public class Reciver4 {
@@ -20,3 +23,4 @@ public class Reciver4 {
        log.info("第四个消费者正在处理=》" + hello);
     }
 }
+*/
