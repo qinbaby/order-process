@@ -1,6 +1,6 @@
-##¶©µ¥Ô¤´¦ÀíÏîÄ¿
+## è®¢å•é¢„å¤„ç†é¡¹ç›®
 
-* druid¼à¿Øweb¿ØÖÆÌ¨
+* druidç›‘æ§webæ§åˆ¶å°
     *  http://localhost:8888/druid/login.html
-* RESTful APIµØÖ·
+* RESTful APIåœ°å€
 	* http://localhost:8888/swagger-ui.html
