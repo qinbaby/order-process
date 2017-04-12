@@ -23,4 +23,13 @@ public class ResultUtil {
         result.setData(object);
         return result;
     }
+
+    public static Result authFail(Object object){
+        Result result=new Result();
+        result.setCode(HttpStatus.AUTH_FAIL.getCode());
+        result.setMsg(HttpStatus.AUTH_FAIL.getMsg());
+        result.setData(object);
+        return result;
+    }
+
 }

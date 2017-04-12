@@ -7,6 +7,7 @@ public enum HttpStatus {
 
     SUCCESS(200,"成功"),
     FAIL(400,"失败"),
+    AUTH_FAIL(403, "抱歉，没有权限"),
     NOT_EXIST(404, "不存在");
 
 
