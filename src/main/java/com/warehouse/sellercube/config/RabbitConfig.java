@@ -1,13 +1,13 @@
 package com.warehouse.sellercube.config;
 
 
-import com.rabbitmq.client.Channel;
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -46,13 +46,14 @@ public class RabbitConfig {
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public RabbitTemplate rabbitTemplate() {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
-        return template;
+        return new RabbitTemplate(connectionFactory());
     }
+
+
 
     @Bean
     public Queue queue() {
-        return new Queue(QUEUE,true);
+        return new Queue(QUEUE,true);//队列持久
     }
 
     /**
@@ -69,28 +70,30 @@ public class RabbitConfig {
 
     /**
      * 队列绑定机制
-     * @return
+     * @return binding
      */
     @Bean
     public Binding binding() {
         return BindingBuilder.bind(this.queue()).to(this.defaultExchange()).with(this.ROUTINGKEY);
     }
 
-    @Bean
+/*    @Bean
     public SimpleMessageListenerContainer messageContainer() {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
         container.setQueues(queue());
         container.setExposeListenerChannel(true);
-        container.setMaxConcurrentConsumers(5);
-        container.setConcurrentConsumers(5);
+        container.setMaxConcurrentConsumers(1);
+        container.setConcurrentConsumers(1);
         container.setAcknowledgeMode(AcknowledgeMode.MANUAL); //设置确认模式手工确认
         container.setMessageListener(new ChannelAwareMessageListener() {
             @Override
             public void onMessage(Message message, Channel channel) throws Exception {
+                channel.basicQos(1);
+                channel.queueDeclare(QUEUE, true, false, false, null);//消息持久
                 channel.basicAck(message.getMessageProperties().getDeliveryTag(), false); //确认消息成功消费
             }
         });
         return container;
-    }
+    }*/
 }
 

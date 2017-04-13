@@ -1,5 +1,6 @@
 package com.warehouse.sellercube.JMS;
 
+import com.warehouse.sellercube.config.RabbitConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@RabbitListener@RabbitListener(queues = "chenjing-queue")
+@RabbitListener(queues = RabbitConfig.QUEUE)
 @Async
 public class Reciver {
 

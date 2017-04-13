@@ -18,6 +18,7 @@ public class OrderPreprocessApplication extends WebMvcConfigurerAdapter {
 	AuthHandlerInterceptor authHandlerInterceptor;
 
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(authHandlerInterceptor).addPathPatterns("/**");
+		registry.addInterceptor(authHandlerInterceptor)
+				.addPathPatterns("/chenjing");
 	}
 }

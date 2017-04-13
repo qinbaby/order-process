@@ -34,9 +34,10 @@ public class Sender implements RabbitTemplate.ConfirmCallback {
     public void send() {
         String context = "hello " + new Date();
         int i=0;
-        while (i<1000){
-        this.rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE,RabbitConfig.ROUTINGKEY, "这是第"+(++i)+"次=》"+context,
+        while (i<10){
+        this.rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE,RabbitConfig.ROUTINGKEY, "这是第"+i+"次=》"+context,
                 new CorrelationData(UUID.randomUUID().toString()));
+        ++i;
         }
     }
 
