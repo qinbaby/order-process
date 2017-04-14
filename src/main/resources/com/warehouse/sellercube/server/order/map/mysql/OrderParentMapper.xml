@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warehouse.sellercube.server.order.mysql.mapper.OrderParentMapper">
+  <resultMap id="BaseResultMap" type="com.warehouse.sellercube.server.order.mysql.entity.OrderParent">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <id column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="TraceID" jdbcType="VARCHAR" property="traceid" />
+    <result column="StateConfigID" jdbcType="INTEGER" property="stateconfigid" />
+    <result column="SourceStateID" jdbcType="INTEGER" property="sourcestateid" />
+    <result column="ReceiveName" jdbcType="VARCHAR" property="receivename" />
+    <result column="CountryID" jdbcType="INTEGER" property="countryid" />
+    <result column="Country" jdbcType="VARCHAR" property="country" />
+    <result column="PostID" jdbcType="VARCHAR" property="postid" />
+    <result column="Address" jdbcType="LONGVARCHAR" property="address" />
+    <result column="DeliveryDate" jdbcType="TIMESTAMP" property="deliverydate" />
+    <result column="SendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="City" jdbcType="LONGVARCHAR" property="city" />
+    <result column="County" jdbcType="LONGVARCHAR" property="county" />
+    <result column="Zip" jdbcType="LONGVARCHAR" property="zip" />
+    <result column="DeliveryAddress" jdbcType="VARCHAR" property="deliveryaddress" />
+    <result column="Weight" jdbcType="VARCHAR" property="weight" />
+    <result column="Freight" jdbcType="VARCHAR" property="freight" />
+    <result column="TransportWeight" jdbcType="VARCHAR" property="transportweight" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="ShippingService" jdbcType="VARCHAR" property="shippingservice" />
+    <result column="ShipWorksOrder" jdbcType="VARCHAR" property="shipworksorder" />
+    <result column="IsShipWorksIsDown" jdbcType="TINYINT" property="isshipworksisdown" />
+    <result column="ShipWorksStoreID" jdbcType="VARCHAR" property="shipworksstoreid" />
+    <result column="EBayUserID" jdbcType="VARCHAR" property="ebayuserid" />
+    <result column="EBaysrn" jdbcType="VARCHAR" property="ebaysrn" />
+    <result column="IsSendMail" jdbcType="CHAR" property="issendmail" />
+    <result column="OrderParentTagID" jdbcType="INTEGER" property="orderparenttagid" />
+    <result column="ConfirmedRemarks" jdbcType="LONGVARCHAR" property="confirmedremarks" />
+    <result column="PayTime" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="FlytDetailShop" jdbcType="VARCHAR" property="flytdetailshop" />
+    <result column="SaleCountry" jdbcType="VARCHAR" property="salecountry" />
+    <result column="SaleTime" jdbcType="TIMESTAMP" property="saletime" />
+    <result column="CheckOutTime" jdbcType="TIMESTAMP" property="checkouttime" />
+    <result column="ChangeStateTime" jdbcType="TIMESTAMP" property="changestatetime" />
+    <result column="SortGenTime" jdbcType="TIMESTAMP" property="sortgentime" />
+    <result column="ReceiveTime" jdbcType="TIMESTAMP" property="receivetime" />
+    <result column="BuyerAddress1" jdbcType="LONGVARCHAR" property="buyeraddress1" />
+    <result column="BuyerAddress2" jdbcType="LONGVARCHAR" property="buyeraddress2" />
+    <result column="UPSReturn" jdbcType="VARCHAR" property="upsreturn" />
+    <result column="USAWeight" jdbcType="VARCHAR" property="usaweight" />
+    <result column="IsHoldUp" jdbcType="BIT" property="isholdup" />
+    <result column="USAparcelSet" jdbcType="CHAR" property="usaparcelset" />
+    <result column="ShippingAndHanding" jdbcType="VARCHAR" property="shippingandhanding" />
+    <result column="Insurance" jdbcType="VARCHAR" property="insurance" />
+    <result column="TotalPrice" jdbcType="VARCHAR" property="totalprice" />
+    <result column="BatchProcessingID" jdbcType="VARCHAR" property="batchprocessingid" />
+    <result column="HoldUpReasons" jdbcType="VARCHAR" property="holdupreasons" />
+    <result column="PaypalTransactionID" jdbcType="VARCHAR" property="paypaltransactionid" />
+    <result column="ImportDateTime" jdbcType="TIMESTAMP" property="importdatetime" />
+    <result column="VolumeWeight" jdbcType="VARCHAR" property="volumeweight" />
+    <result column="Deduct" jdbcType="VARCHAR" property="deduct" />
+    <result column="CostPrice" jdbcType="VARCHAR" property="costprice" />
+    <result column="ProfitReport" jdbcType="VARCHAR" property="profitreport" />
+    <result column="Ups3DaysType" jdbcType="VARCHAR" property="ups3daystype" />
+    <result column="IsDelivery" jdbcType="CHAR" property="isdelivery" />
+    <result column="PakePrice" jdbcType="VARCHAR" property="pakeprice" />
+    <result column="Inside" jdbcType="VARCHAR" property="inside" />
+    <result column="UspsPostageAmount" jdbcType="VARCHAR" property="uspspostageamount" />
+    <result column="UspsInsuredValue" jdbcType="VARCHAR" property="uspsinsuredvalue" />
+    <result column="UspsInsuranceFee" jdbcType="VARCHAR" property="uspsinsurancefee" />
+    <result column="FlytuserID" jdbcType="VARCHAR" property="flytuserid" />
+    <result column="ProcessCenterID" jdbcType="INTEGER" property="processcenterid" />
+    <result column="SellerCubePNO" jdbcType="VARCHAR" property="sellercubepno" />
+    <result column="IsRepeatSend" jdbcType="BIT" property="isrepeatsend" />
+    <result column="Setting" jdbcType="VARCHAR" property="setting" />
+    <result column="TrackingNO" jdbcType="VARCHAR" property="trackingno" />
+    <result column="TrackingRemark" jdbcType="VARCHAR" property="trackingremark" />
+    <result column="PackErrorInfor" jdbcType="LONGVARCHAR" property="packerrorinfor" />
+    <result column="PackSubmitInfor" jdbcType="LONGVARCHAR" property="packsubmitinfor" />
+    <result column="PackPrintInfor" jdbcType="LONGVARCHAR" property="packprintinfor" />
+    <result column="PakeageID" jdbcType="VARCHAR" property="pakeageid" />
+    <result column="UspsReturnFreight" jdbcType="DECIMAL" property="uspsreturnfreight" />
+    <result column="SetToProcessingTime" jdbcType="TIMESTAMP" property="settoprocessingtime" />
+    <result column="Location" jdbcType="VARCHAR" property="location" />
+    <result column="InPrice" jdbcType="DECIMAL" property="inprice" />
+    <result column="IsPPAddress" jdbcType="BIT" property="isppaddress" />
+    <result column="IsEBayAPIdownload" jdbcType="BIT" property="isebayapidownload" />
+    <result column="ReceiveFreightUser" jdbcType="VARCHAR" property="receivefreightuser" />
+    <result column="ReceiveFreightPlace" jdbcType="VARCHAR" property="receivefreightplace" />
+    <result column="ErrorCode" jdbcType="LONGVARCHAR" property="errorcode" />
+    <result column="MoneryType" jdbcType="VARCHAR" property="monerytype" />
+    <result column="UspsReturnDataTime" jdbcType="TIMESTAMP" property="uspsreturndatatime" />
+    <result column="ShelfNo" jdbcType="VARCHAR" property="shelfno" />
+    <result column="Point" jdbcType="VARCHAR" property="point" />
+    <result column="DeductProcess" jdbcType="VARCHAR" property="deductprocess" />
+    <result column="DeliveryUser" jdbcType="VARCHAR" property="deliveryuser" />
+    <result column="PPNotes" jdbcType="LONGVARCHAR" property="ppnotes" />
+    <result column="Affiliate" jdbcType="VARCHAR" property="affiliate" />
+    <result column="IsPPAudit" jdbcType="BIT" property="isppaudit" />
+    <result column="ProductManagerID" jdbcType="INTEGER" property="productmanagerid" />
+    <result column="IsParent" jdbcType="BIT" property="isparent" />
+    <result column="IsSplit" jdbcType="BIT" property="issplit" />
+    <result column="IsReplenishment" jdbcType="BIT" property="isreplenishment" />
+    <result column="ClientIP" jdbcType="VARCHAR" property="clientip" />
+    <result column="OrderType" jdbcType="VARCHAR" property="ordertype" />
+    <result column="IsSyncOrder" jdbcType="BIT" property="issyncorder" />
+    <result column="UserTraceID" jdbcType="VARCHAR" property="usertraceid" />
+    <result column="ProductSpecialerID" jdbcType="INTEGER" property="productspecialerid" />
+    <result column="IsRequestSplit" jdbcType="BIT" property="isrequestsplit" />
+    <result column="IsFedexTreace" jdbcType="BIT" property="isfedextreace" />
+    <result column="PaymentType" jdbcType="TINYINT" property="paymenttype" />
+    <result column="PostTypeOption" jdbcType="VARCHAR" property="posttypeoption" />
+    <result column="OrderDetailType" jdbcType="INTEGER" property="orderdetailtype" />
+    <result column="InSystemDateTime" jdbcType="TIMESTAMP" property="insystemdatetime" />
+    <result column="FNProcessingID" jdbcType="VARCHAR" property="fnprocessingid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, OrderID, TraceID, StateConfigID, SourceStateID, ReceiveName, CountryID, Country, 
+    PostID, Address, DeliveryDate, SendDate, Phone, City, County, Zip, DeliveryAddress, 
+    Weight, Freight, TransportWeight, Remark, Email, ShippingService, ShipWorksOrder, 
+    IsShipWorksIsDown, ShipWorksStoreID, EBayUserID, EBaysrn, IsSendMail, OrderParentTagID, 
+    ConfirmedRemarks, PayTime, FlytDetailShop, SaleCountry, SaleTime, CheckOutTime, ChangeStateTime, 
+    SortGenTime, ReceiveTime, BuyerAddress1, BuyerAddress2, UPSReturn, USAWeight, IsHoldUp, 
+    USAparcelSet, ShippingAndHanding, Insurance, TotalPrice, BatchProcessingID, HoldUpReasons, 
+    PaypalTransactionID, ImportDateTime, VolumeWeight, Deduct, CostPrice, ProfitReport, 
+    Ups3DaysType, IsDelivery, PakePrice, Inside, UspsPostageAmount, UspsInsuredValue, 
+    UspsInsuranceFee, FlytuserID, ProcessCenterID, SellerCubePNO, IsRepeatSend, Setting, 
+    TrackingNO, TrackingRemark, PackErrorInfor, PackSubmitInfor, PackPrintInfor, PakeageID, 
+    UspsReturnFreight, SetToProcessingTime, Location, InPrice, IsPPAddress, IsEBayAPIdownload, 
+    ReceiveFreightUser, ReceiveFreightPlace, ErrorCode, MoneryType, UspsReturnDataTime, 
+    ShelfNo, Point, DeductProcess, DeliveryUser, PPNotes, Affiliate, IsPPAudit, ProductManagerID, 
+    IsParent, IsSplit, IsReplenishment, ClientIP, OrderType, IsSyncOrder, UserTraceID, 
+    ProductSpecialerID, IsRequestSplit, IsFedexTreace, PaymentType, PostTypeOption, OrderDetailType, 
+    InSystemDateTime, FNProcessingID
+  </sql>
+  <select id="getOrderParentsByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" /> FROM orderparent WHERE SourceStateID=#{state} limit 0,1000
+
+  </select>
+  <update id="updateSourceStateIdByOrderid">
+    update orderparent SET SourceStateID = #{sourceStateId},
+    where OrderID = #{orderId}
+  </update>
+
+
+  <!--分割-->
+
+
+  <select id="selectByPrimaryKey" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParentKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderparent
+    where ID = #{id,jdbcType=INTEGER}
+      and OrderID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParentKey">
+    delete from orderparent
+    where ID = #{id,jdbcType=INTEGER}
+      and OrderID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParent">
+    insert into orderparent (ID, OrderID, TraceID, 
+      StateConfigID, SourceStateID, ReceiveName, 
+      CountryID, Country, PostID, 
+      Address, DeliveryDate, SendDate, 
+      Phone, City, County, 
+      Zip, DeliveryAddress, Weight, 
+      Freight, TransportWeight, Remark, 
+      Email, ShippingService, ShipWorksOrder, 
+      IsShipWorksIsDown, ShipWorksStoreID, EBayUserID, 
+      EBaysrn, IsSendMail, OrderParentTagID, 
+      ConfirmedRemarks, PayTime, FlytDetailShop, 
+      SaleCountry, SaleTime, CheckOutTime, 
+      ChangeStateTime, SortGenTime, ReceiveTime, 
+      BuyerAddress1, BuyerAddress2, UPSReturn, 
+      USAWeight, IsHoldUp, USAparcelSet, 
+      ShippingAndHanding, Insurance, TotalPrice, 
+      BatchProcessingID, HoldUpReasons, PaypalTransactionID, 
+      ImportDateTime, VolumeWeight, Deduct, 
+      CostPrice, ProfitReport, Ups3DaysType, 
+      IsDelivery, PakePrice, Inside, 
+      UspsPostageAmount, UspsInsuredValue, UspsInsuranceFee, 
+      FlytuserID, ProcessCenterID, SellerCubePNO, 
+      IsRepeatSend, Setting, TrackingNO, 
+      TrackingRemark, PackErrorInfor, PackSubmitInfor, 
+      PackPrintInfor, PakeageID, UspsReturnFreight, 
+      SetToProcessingTime, Location, InPrice, 
+      IsPPAddress, IsEBayAPIdownload, ReceiveFreightUser, 
+      ReceiveFreightPlace, ErrorCode, MoneryType, 
+      UspsReturnDataTime, ShelfNo, Point, 
+      DeductProcess, DeliveryUser, PPNotes, 
+      Affiliate, IsPPAudit, ProductManagerID, 
+      IsParent, IsSplit, IsReplenishment, 
+      ClientIP, OrderType, IsSyncOrder, 
+      UserTraceID, ProductSpecialerID, IsRequestSplit, 
+      IsFedexTreace, PaymentType, PostTypeOption, 
+      OrderDetailType, InSystemDateTime, FNProcessingID
+      )
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{traceid,jdbcType=VARCHAR}, 
+      #{stateconfigid,jdbcType=INTEGER}, #{sourcestateid,jdbcType=INTEGER}, #{receivename,jdbcType=VARCHAR}, 
+      #{countryid,jdbcType=INTEGER}, #{country,jdbcType=VARCHAR}, #{postid,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR}, #{deliverydate,jdbcType=TIMESTAMP}, #{senddate,jdbcType=TIMESTAMP},
+      #{phone,jdbcType=VARCHAR}, #{city,jdbcType=LONGVARCHAR}, #{county,jdbcType=LONGVARCHAR},
+      #{zip,jdbcType=LONGVARCHAR}, #{deliveryaddress,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR},
+      #{freight,jdbcType=VARCHAR}, #{transportweight,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{shippingservice,jdbcType=VARCHAR}, #{shipworksorder,jdbcType=VARCHAR}, 
+      #{isshipworksisdown,jdbcType=TINYINT}, #{shipworksstoreid,jdbcType=VARCHAR}, #{ebayuserid,jdbcType=VARCHAR}, 
+      #{ebaysrn,jdbcType=VARCHAR}, #{issendmail,jdbcType=CHAR}, #{orderparenttagid,jdbcType=INTEGER}, 
+      #{confirmedremarks,jdbcType=LONGVARCHAR}, #{paytime,jdbcType=TIMESTAMP}, #{flytdetailshop,jdbcType=VARCHAR},
+      #{salecountry,jdbcType=VARCHAR}, #{saletime,jdbcType=TIMESTAMP}, #{checkouttime,jdbcType=TIMESTAMP}, 
+      #{changestatetime,jdbcType=TIMESTAMP}, #{sortgentime,jdbcType=TIMESTAMP}, #{receivetime,jdbcType=TIMESTAMP}, 
+      #{buyeraddress1,jdbcType=LONGVARCHAR}, #{buyeraddress2,jdbcType=LONGVARCHAR}, #{upsreturn,jdbcType=VARCHAR},
+      #{usaweight,jdbcType=VARCHAR}, #{isholdup,jdbcType=BIT}, #{usaparcelset,jdbcType=CHAR}, 
+      #{shippingandhanding,jdbcType=VARCHAR}, #{insurance,jdbcType=VARCHAR}, #{totalprice,jdbcType=VARCHAR}, 
+      #{batchprocessingid,jdbcType=VARCHAR}, #{holdupreasons,jdbcType=VARCHAR}, #{paypaltransactionid,jdbcType=VARCHAR}, 
+      #{importdatetime,jdbcType=TIMESTAMP}, #{volumeweight,jdbcType=VARCHAR}, #{deduct,jdbcType=VARCHAR}, 
+      #{costprice,jdbcType=VARCHAR}, #{profitreport,jdbcType=VARCHAR}, #{ups3daystype,jdbcType=VARCHAR}, 
+      #{isdelivery,jdbcType=CHAR}, #{pakeprice,jdbcType=VARCHAR}, #{inside,jdbcType=VARCHAR}, 
+      #{uspspostageamount,jdbcType=VARCHAR}, #{uspsinsuredvalue,jdbcType=VARCHAR}, #{uspsinsurancefee,jdbcType=VARCHAR}, 
+      #{flytuserid,jdbcType=VARCHAR}, #{processcenterid,jdbcType=INTEGER}, #{sellercubepno,jdbcType=VARCHAR}, 
+      #{isrepeatsend,jdbcType=BIT}, #{setting,jdbcType=VARCHAR}, #{trackingno,jdbcType=VARCHAR}, 
+      #{trackingremark,jdbcType=VARCHAR}, #{packerrorinfor,jdbcType=LONGVARCHAR}, #{packsubmitinfor,jdbcType=LONGVARCHAR},
+      #{packprintinfor,jdbcType=LONGVARCHAR}, #{pakeageid,jdbcType=VARCHAR}, #{uspsreturnfreight,jdbcType=DECIMAL},
+      #{settoprocessingtime,jdbcType=TIMESTAMP}, #{location,jdbcType=VARCHAR}, #{inprice,jdbcType=DECIMAL}, 
+      #{isppaddress,jdbcType=BIT}, #{isebayapidownload,jdbcType=BIT}, #{receivefreightuser,jdbcType=VARCHAR}, 
+      #{receivefreightplace,jdbcType=VARCHAR}, #{errorcode,jdbcType=LONGVARCHAR}, #{monerytype,jdbcType=VARCHAR},
+      #{uspsreturndatatime,jdbcType=TIMESTAMP}, #{shelfno,jdbcType=VARCHAR}, #{point,jdbcType=VARCHAR}, 
+      #{deductprocess,jdbcType=VARCHAR}, #{deliveryuser,jdbcType=VARCHAR}, #{ppnotes,jdbcType=LONGVARCHAR},
+      #{affiliate,jdbcType=VARCHAR}, #{isppaudit,jdbcType=BIT}, #{productmanagerid,jdbcType=INTEGER}, 
+      #{isparent,jdbcType=BIT}, #{issplit,jdbcType=BIT}, #{isreplenishment,jdbcType=BIT}, 
+      #{clientip,jdbcType=VARCHAR}, #{ordertype,jdbcType=VARCHAR}, #{issyncorder,jdbcType=BIT}, 
+      #{usertraceid,jdbcType=VARCHAR}, #{productspecialerid,jdbcType=INTEGER}, #{isrequestsplit,jdbcType=BIT}, 
+      #{isfedextreace,jdbcType=BIT}, #{paymenttype,jdbcType=TINYINT}, #{posttypeoption,jdbcType=VARCHAR}, 
+      #{orderdetailtype,jdbcType=INTEGER}, #{insystemdatetime,jdbcType=TIMESTAMP}, #{fnprocessingid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParent">
+    insert into orderparent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="traceid != null">
+        TraceID,
+      </if>
+      <if test="stateconfigid != null">
+        StateConfigID,
+      </if>
+      <if test="sourcestateid != null">
+        SourceStateID,
+      </if>
+      <if test="receivename != null">
+        ReceiveName,
+      </if>
+      <if test="countryid != null">
+        CountryID,
+      </if>
+      <if test="country != null">
+        Country,
+      </if>
+      <if test="postid != null">
+        PostID,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="deliverydate != null">
+        DeliveryDate,
+      </if>
+      <if test="senddate != null">
+        SendDate,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="city != null">
+        City,
+      </if>
+      <if test="county != null">
+        County,
+      </if>
+      <if test="zip != null">
+        Zip,
+      </if>
+      <if test="deliveryaddress != null">
+        DeliveryAddress,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="freight != null">
+        Freight,
+      </if>
+      <if test="transportweight != null">
+        TransportWeight,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="shippingservice != null">
+        ShippingService,
+      </if>
+      <if test="shipworksorder != null">
+        ShipWorksOrder,
+      </if>
+      <if test="isshipworksisdown != null">
+        IsShipWorksIsDown,
+      </if>
+      <if test="shipworksstoreid != null">
+        ShipWorksStoreID,
+      </if>
+      <if test="ebayuserid != null">
+        EBayUserID,
+      </if>
+      <if test="ebaysrn != null">
+        EBaysrn,
+      </if>
+      <if test="issendmail != null">
+        IsSendMail,
+      </if>
+      <if test="orderparenttagid != null">
+        OrderParentTagID,
+      </if>
+      <if test="confirmedremarks != null">
+        ConfirmedRemarks,
+      </if>
+      <if test="paytime != null">
+        PayTime,
+      </if>
+      <if test="flytdetailshop != null">
+        FlytDetailShop,
+      </if>
+      <if test="salecountry != null">
+        SaleCountry,
+      </if>
+      <if test="saletime != null">
+        SaleTime,
+      </if>
+      <if test="checkouttime != null">
+        CheckOutTime,
+      </if>
+      <if test="changestatetime != null">
+        ChangeStateTime,
+      </if>
+      <if test="sortgentime != null">
+        SortGenTime,
+      </if>
+      <if test="receivetime != null">
+        ReceiveTime,
+      </if>
+      <if test="buyeraddress1 != null">
+        BuyerAddress1,
+      </if>
+      <if test="buyeraddress2 != null">
+        BuyerAddress2,
+      </if>
+      <if test="upsreturn != null">
+        UPSReturn,
+      </if>
+      <if test="usaweight != null">
+        USAWeight,
+      </if>
+      <if test="isholdup != null">
+        IsHoldUp,
+      </if>
+      <if test="usaparcelset != null">
+        USAparcelSet,
+      </if>
+      <if test="shippingandhanding != null">
+        ShippingAndHanding,
+      </if>
+      <if test="insurance != null">
+        Insurance,
+      </if>
+      <if test="totalprice != null">
+        TotalPrice,
+      </if>
+      <if test="batchprocessingid != null">
+        BatchProcessingID,
+      </if>
+      <if test="holdupreasons != null">
+        HoldUpReasons,
+      </if>
+      <if test="paypaltransactionid != null">
+        PaypalTransactionID,
+      </if>
+      <if test="importdatetime != null">
+        ImportDateTime,
+      </if>
+      <if test="volumeweight != null">
+        VolumeWeight,
+      </if>
+      <if test="deduct != null">
+        Deduct,
+      </if>
+      <if test="costprice != null">
+        CostPrice,
+      </if>
+      <if test="profitreport != null">
+        ProfitReport,
+      </if>
+      <if test="ups3daystype != null">
+        Ups3DaysType,
+      </if>
+      <if test="isdelivery != null">
+        IsDelivery,
+      </if>
+      <if test="pakeprice != null">
+        PakePrice,
+      </if>
+      <if test="inside != null">
+        Inside,
+      </if>
+      <if test="uspspostageamount != null">
+        UspsPostageAmount,
+      </if>
+      <if test="uspsinsuredvalue != null">
+        UspsInsuredValue,
+      </if>
+      <if test="uspsinsurancefee != null">
+        UspsInsuranceFee,
+      </if>
+      <if test="flytuserid != null">
+        FlytuserID,
+      </if>
+      <if test="processcenterid != null">
+        ProcessCenterID,
+      </if>
+      <if test="sellercubepno != null">
+        SellerCubePNO,
+      </if>
+      <if test="isrepeatsend != null">
+        IsRepeatSend,
+      </if>
+      <if test="setting != null">
+        Setting,
+      </if>
+      <if test="trackingno != null">
+        TrackingNO,
+      </if>
+      <if test="trackingremark != null">
+        TrackingRemark,
+      </if>
+      <if test="packerrorinfor != null">
+        PackErrorInfor,
+      </if>
+      <if test="packsubmitinfor != null">
+        PackSubmitInfor,
+      </if>
+      <if test="packprintinfor != null">
+        PackPrintInfor,
+      </if>
+      <if test="pakeageid != null">
+        PakeageID,
+      </if>
+      <if test="uspsreturnfreight != null">
+        UspsReturnFreight,
+      </if>
+      <if test="settoprocessingtime != null">
+        SetToProcessingTime,
+      </if>
+      <if test="location != null">
+        Location,
+      </if>
+      <if test="inprice != null">
+        InPrice,
+      </if>
+      <if test="isppaddress != null">
+        IsPPAddress,
+      </if>
+      <if test="isebayapidownload != null">
+        IsEBayAPIdownload,
+      </if>
+      <if test="receivefreightuser != null">
+        ReceiveFreightUser,
+      </if>
+      <if test="receivefreightplace != null">
+        ReceiveFreightPlace,
+      </if>
+      <if test="errorcode != null">
+        ErrorCode,
+      </if>
+      <if test="monerytype != null">
+        MoneryType,
+      </if>
+      <if test="uspsreturndatatime != null">
+        UspsReturnDataTime,
+      </if>
+      <if test="shelfno != null">
+        ShelfNo,
+      </if>
+      <if test="point != null">
+        Point,
+      </if>
+      <if test="deductprocess != null">
+        DeductProcess,
+      </if>
+      <if test="deliveryuser != null">
+        DeliveryUser,
+      </if>
+      <if test="ppnotes != null">
+        PPNotes,
+      </if>
+      <if test="affiliate != null">
+        Affiliate,
+      </if>
+      <if test="isppaudit != null">
+        IsPPAudit,
+      </if>
+      <if test="productmanagerid != null">
+        ProductManagerID,
+      </if>
+      <if test="isparent != null">
+        IsParent,
+      </if>
+      <if test="issplit != null">
+        IsSplit,
+      </if>
+      <if test="isreplenishment != null">
+        IsReplenishment,
+      </if>
+      <if test="clientip != null">
+        ClientIP,
+      </if>
+      <if test="ordertype != null">
+        OrderType,
+      </if>
+      <if test="issyncorder != null">
+        IsSyncOrder,
+      </if>
+      <if test="usertraceid != null">
+        UserTraceID,
+      </if>
+      <if test="productspecialerid != null">
+        ProductSpecialerID,
+      </if>
+      <if test="isrequestsplit != null">
+        IsRequestSplit,
+      </if>
+      <if test="isfedextreace != null">
+        IsFedexTreace,
+      </if>
+      <if test="paymenttype != null">
+        PaymentType,
+      </if>
+      <if test="posttypeoption != null">
+        PostTypeOption,
+      </if>
+      <if test="orderdetailtype != null">
+        OrderDetailType,
+      </if>
+      <if test="insystemdatetime != null">
+        InSystemDateTime,
+      </if>
+      <if test="fnprocessingid != null">
+        FNProcessingID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="traceid != null">
+        #{traceid,jdbcType=VARCHAR},
+      </if>
+      <if test="stateconfigid != null">
+        #{stateconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="sourcestateid != null">
+        #{sourcestateid,jdbcType=INTEGER},
+      </if>
+      <if test="receivename != null">
+        #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="countryid != null">
+        #{countryid,jdbcType=INTEGER},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null">
+        #{postid,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="deliverydate != null">
+        #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="deliveryaddress != null">
+        #{deliveryaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        #{freight,jdbcType=VARCHAR},
+      </if>
+      <if test="transportweight != null">
+        #{transportweight,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingservice != null">
+        #{shippingservice,jdbcType=VARCHAR},
+      </if>
+      <if test="shipworksorder != null">
+        #{shipworksorder,jdbcType=VARCHAR},
+      </if>
+      <if test="isshipworksisdown != null">
+        #{isshipworksisdown,jdbcType=TINYINT},
+      </if>
+      <if test="shipworksstoreid != null">
+        #{shipworksstoreid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayuserid != null">
+        #{ebayuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysrn != null">
+        #{ebaysrn,jdbcType=VARCHAR},
+      </if>
+      <if test="issendmail != null">
+        #{issendmail,jdbcType=CHAR},
+      </if>
+      <if test="orderparenttagid != null">
+        #{orderparenttagid,jdbcType=INTEGER},
+      </if>
+      <if test="confirmedremarks != null">
+        #{confirmedremarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paytime != null">
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flytdetailshop != null">
+        #{flytdetailshop,jdbcType=VARCHAR},
+      </if>
+      <if test="salecountry != null">
+        #{salecountry,jdbcType=VARCHAR},
+      </if>
+      <if test="saletime != null">
+        #{saletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkouttime != null">
+        #{checkouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changestatetime != null">
+        #{changestatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortgentime != null">
+        #{sortgentime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receivetime != null">
+        #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyeraddress1 != null">
+        #{buyeraddress1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="buyeraddress2 != null">
+        #{buyeraddress2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="upsreturn != null">
+        #{upsreturn,jdbcType=VARCHAR},
+      </if>
+      <if test="usaweight != null">
+        #{usaweight,jdbcType=VARCHAR},
+      </if>
+      <if test="isholdup != null">
+        #{isholdup,jdbcType=BIT},
+      </if>
+      <if test="usaparcelset != null">
+        #{usaparcelset,jdbcType=CHAR},
+      </if>
+      <if test="shippingandhanding != null">
+        #{shippingandhanding,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null">
+        #{insurance,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=VARCHAR},
+      </if>
+      <if test="batchprocessingid != null">
+        #{batchprocessingid,jdbcType=VARCHAR},
+      </if>
+      <if test="holdupreasons != null">
+        #{holdupreasons,jdbcType=VARCHAR},
+      </if>
+      <if test="paypaltransactionid != null">
+        #{paypaltransactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="importdatetime != null">
+        #{importdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="volumeweight != null">
+        #{volumeweight,jdbcType=VARCHAR},
+      </if>
+      <if test="deduct != null">
+        #{deduct,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=VARCHAR},
+      </if>
+      <if test="profitreport != null">
+        #{profitreport,jdbcType=VARCHAR},
+      </if>
+      <if test="ups3daystype != null">
+        #{ups3daystype,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelivery != null">
+        #{isdelivery,jdbcType=CHAR},
+      </if>
+      <if test="pakeprice != null">
+        #{pakeprice,jdbcType=VARCHAR},
+      </if>
+      <if test="inside != null">
+        #{inside,jdbcType=VARCHAR},
+      </if>
+      <if test="uspspostageamount != null">
+        #{uspspostageamount,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsinsuredvalue != null">
+        #{uspsinsuredvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsinsurancefee != null">
+        #{uspsinsurancefee,jdbcType=VARCHAR},
+      </if>
+      <if test="flytuserid != null">
+        #{flytuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="processcenterid != null">
+        #{processcenterid,jdbcType=INTEGER},
+      </if>
+      <if test="sellercubepno != null">
+        #{sellercubepno,jdbcType=VARCHAR},
+      </if>
+      <if test="isrepeatsend != null">
+        #{isrepeatsend,jdbcType=BIT},
+      </if>
+      <if test="setting != null">
+        #{setting,jdbcType=VARCHAR},
+      </if>
+      <if test="trackingno != null">
+        #{trackingno,jdbcType=VARCHAR},
+      </if>
+      <if test="trackingremark != null">
+        #{trackingremark,jdbcType=VARCHAR},
+      </if>
+      <if test="packerrorinfor != null">
+        #{packerrorinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packsubmitinfor != null">
+        #{packsubmitinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packprintinfor != null">
+        #{packprintinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pakeageid != null">
+        #{pakeageid,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsreturnfreight != null">
+        #{uspsreturnfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="settoprocessingtime != null">
+        #{settoprocessingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="inprice != null">
+        #{inprice,jdbcType=DECIMAL},
+      </if>
+      <if test="isppaddress != null">
+        #{isppaddress,jdbcType=BIT},
+      </if>
+      <if test="isebayapidownload != null">
+        #{isebayapidownload,jdbcType=BIT},
+      </if>
+      <if test="receivefreightuser != null">
+        #{receivefreightuser,jdbcType=VARCHAR},
+      </if>
+      <if test="receivefreightplace != null">
+        #{receivefreightplace,jdbcType=VARCHAR},
+      </if>
+      <if test="errorcode != null">
+        #{errorcode,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="monerytype != null">
+        #{monerytype,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsreturndatatime != null">
+        #{uspsreturndatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfno != null">
+        #{shelfno,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="deductprocess != null">
+        #{deductprocess,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryuser != null">
+        #{deliveryuser,jdbcType=VARCHAR},
+      </if>
+      <if test="ppnotes != null">
+        #{ppnotes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="affiliate != null">
+        #{affiliate,jdbcType=VARCHAR},
+      </if>
+      <if test="isppaudit != null">
+        #{isppaudit,jdbcType=BIT},
+      </if>
+      <if test="productmanagerid != null">
+        #{productmanagerid,jdbcType=INTEGER},
+      </if>
+      <if test="isparent != null">
+        #{isparent,jdbcType=BIT},
+      </if>
+      <if test="issplit != null">
+        #{issplit,jdbcType=BIT},
+      </if>
+      <if test="isreplenishment != null">
+        #{isreplenishment,jdbcType=BIT},
+      </if>
+      <if test="clientip != null">
+        #{clientip,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="issyncorder != null">
+        #{issyncorder,jdbcType=BIT},
+      </if>
+      <if test="usertraceid != null">
+        #{usertraceid,jdbcType=VARCHAR},
+      </if>
+      <if test="productspecialerid != null">
+        #{productspecialerid,jdbcType=INTEGER},
+      </if>
+      <if test="isrequestsplit != null">
+        #{isrequestsplit,jdbcType=BIT},
+      </if>
+      <if test="isfedextreace != null">
+        #{isfedextreace,jdbcType=BIT},
+      </if>
+      <if test="paymenttype != null">
+        #{paymenttype,jdbcType=TINYINT},
+      </if>
+      <if test="posttypeoption != null">
+        #{posttypeoption,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdetailtype != null">
+        #{orderdetailtype,jdbcType=INTEGER},
+      </if>
+      <if test="insystemdatetime != null">
+        #{insystemdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fnprocessingid != null">
+        #{fnprocessingid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParent">
+    update orderparent
+    <set>
+      <if test="traceid != null">
+        TraceID = #{traceid,jdbcType=VARCHAR},
+      </if>
+      <if test="stateconfigid != null">
+        StateConfigID = #{stateconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="sourcestateid != null">
+        SourceStateID = #{sourcestateid,jdbcType=INTEGER},
+      </if>
+      <if test="receivename != null">
+        ReceiveName = #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="countryid != null">
+        CountryID = #{countryid,jdbcType=INTEGER},
+      </if>
+      <if test="country != null">
+        Country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null">
+        PostID = #{postid,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="deliverydate != null">
+        DeliveryDate = #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="senddate != null">
+        SendDate = #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        City = #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="county != null">
+        County = #{county,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="zip != null">
+        Zip = #{zip,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="deliveryaddress != null">
+        DeliveryAddress = #{deliveryaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        Weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        Freight = #{freight,jdbcType=VARCHAR},
+      </if>
+      <if test="transportweight != null">
+        TransportWeight = #{transportweight,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingservice != null">
+        ShippingService = #{shippingservice,jdbcType=VARCHAR},
+      </if>
+      <if test="shipworksorder != null">
+        ShipWorksOrder = #{shipworksorder,jdbcType=VARCHAR},
+      </if>
+      <if test="isshipworksisdown != null">
+        IsShipWorksIsDown = #{isshipworksisdown,jdbcType=TINYINT},
+      </if>
+      <if test="shipworksstoreid != null">
+        ShipWorksStoreID = #{shipworksstoreid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayuserid != null">
+        EBayUserID = #{ebayuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysrn != null">
+        EBaysrn = #{ebaysrn,jdbcType=VARCHAR},
+      </if>
+      <if test="issendmail != null">
+        IsSendMail = #{issendmail,jdbcType=CHAR},
+      </if>
+      <if test="orderparenttagid != null">
+        OrderParentTagID = #{orderparenttagid,jdbcType=INTEGER},
+      </if>
+      <if test="confirmedremarks != null">
+        ConfirmedRemarks = #{confirmedremarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="paytime != null">
+        PayTime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flytdetailshop != null">
+        FlytDetailShop = #{flytdetailshop,jdbcType=VARCHAR},
+      </if>
+      <if test="salecountry != null">
+        SaleCountry = #{salecountry,jdbcType=VARCHAR},
+      </if>
+      <if test="saletime != null">
+        SaleTime = #{saletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkouttime != null">
+        CheckOutTime = #{checkouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changestatetime != null">
+        ChangeStateTime = #{changestatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortgentime != null">
+        SortGenTime = #{sortgentime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receivetime != null">
+        ReceiveTime = #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyeraddress1 != null">
+        BuyerAddress1 = #{buyeraddress1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="buyeraddress2 != null">
+        BuyerAddress2 = #{buyeraddress2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="upsreturn != null">
+        UPSReturn = #{upsreturn,jdbcType=VARCHAR},
+      </if>
+      <if test="usaweight != null">
+        USAWeight = #{usaweight,jdbcType=VARCHAR},
+      </if>
+      <if test="isholdup != null">
+        IsHoldUp = #{isholdup,jdbcType=BIT},
+      </if>
+      <if test="usaparcelset != null">
+        USAparcelSet = #{usaparcelset,jdbcType=CHAR},
+      </if>
+      <if test="shippingandhanding != null">
+        ShippingAndHanding = #{shippingandhanding,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null">
+        Insurance = #{insurance,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null">
+        TotalPrice = #{totalprice,jdbcType=VARCHAR},
+      </if>
+      <if test="batchprocessingid != null">
+        BatchProcessingID = #{batchprocessingid,jdbcType=VARCHAR},
+      </if>
+      <if test="holdupreasons != null">
+        HoldUpReasons = #{holdupreasons,jdbcType=VARCHAR},
+      </if>
+      <if test="paypaltransactionid != null">
+        PaypalTransactionID = #{paypaltransactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="importdatetime != null">
+        ImportDateTime = #{importdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="volumeweight != null">
+        VolumeWeight = #{volumeweight,jdbcType=VARCHAR},
+      </if>
+      <if test="deduct != null">
+        Deduct = #{deduct,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        CostPrice = #{costprice,jdbcType=VARCHAR},
+      </if>
+      <if test="profitreport != null">
+        ProfitReport = #{profitreport,jdbcType=VARCHAR},
+      </if>
+      <if test="ups3daystype != null">
+        Ups3DaysType = #{ups3daystype,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelivery != null">
+        IsDelivery = #{isdelivery,jdbcType=CHAR},
+      </if>
+      <if test="pakeprice != null">
+        PakePrice = #{pakeprice,jdbcType=VARCHAR},
+      </if>
+      <if test="inside != null">
+        Inside = #{inside,jdbcType=VARCHAR},
+      </if>
+      <if test="uspspostageamount != null">
+        UspsPostageAmount = #{uspspostageamount,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsinsuredvalue != null">
+        UspsInsuredValue = #{uspsinsuredvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsinsurancefee != null">
+        UspsInsuranceFee = #{uspsinsurancefee,jdbcType=VARCHAR},
+      </if>
+      <if test="flytuserid != null">
+        FlytuserID = #{flytuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="processcenterid != null">
+        ProcessCenterID = #{processcenterid,jdbcType=INTEGER},
+      </if>
+      <if test="sellercubepno != null">
+        SellerCubePNO = #{sellercubepno,jdbcType=VARCHAR},
+      </if>
+      <if test="isrepeatsend != null">
+        IsRepeatSend = #{isrepeatsend,jdbcType=BIT},
+      </if>
+      <if test="setting != null">
+        Setting = #{setting,jdbcType=VARCHAR},
+      </if>
+      <if test="trackingno != null">
+        TrackingNO = #{trackingno,jdbcType=VARCHAR},
+      </if>
+      <if test="trackingremark != null">
+        TrackingRemark = #{trackingremark,jdbcType=VARCHAR},
+      </if>
+      <if test="packerrorinfor != null">
+        PackErrorInfor = #{packerrorinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packsubmitinfor != null">
+        PackSubmitInfor = #{packsubmitinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packprintinfor != null">
+        PackPrintInfor = #{packprintinfor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pakeageid != null">
+        PakeageID = #{pakeageid,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsreturnfreight != null">
+        UspsReturnFreight = #{uspsreturnfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="settoprocessingtime != null">
+        SetToProcessingTime = #{settoprocessingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="location != null">
+        Location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="inprice != null">
+        InPrice = #{inprice,jdbcType=DECIMAL},
+      </if>
+      <if test="isppaddress != null">
+        IsPPAddress = #{isppaddress,jdbcType=BIT},
+      </if>
+      <if test="isebayapidownload != null">
+        IsEBayAPIdownload = #{isebayapidownload,jdbcType=BIT},
+      </if>
+      <if test="receivefreightuser != null">
+        ReceiveFreightUser = #{receivefreightuser,jdbcType=VARCHAR},
+      </if>
+      <if test="receivefreightplace != null">
+        ReceiveFreightPlace = #{receivefreightplace,jdbcType=VARCHAR},
+      </if>
+      <if test="errorcode != null">
+        ErrorCode = #{errorcode,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="monerytype != null">
+        MoneryType = #{monerytype,jdbcType=VARCHAR},
+      </if>
+      <if test="uspsreturndatatime != null">
+        UspsReturnDataTime = #{uspsreturndatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfno != null">
+        ShelfNo = #{shelfno,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null">
+        Point = #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="deductprocess != null">
+        DeductProcess = #{deductprocess,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryuser != null">
+        DeliveryUser = #{deliveryuser,jdbcType=VARCHAR},
+      </if>
+      <if test="ppnotes != null">
+        PPNotes = #{ppnotes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="affiliate != null">
+        Affiliate = #{affiliate,jdbcType=VARCHAR},
+      </if>
+      <if test="isppaudit != null">
+        IsPPAudit = #{isppaudit,jdbcType=BIT},
+      </if>
+      <if test="productmanagerid != null">
+        ProductManagerID = #{productmanagerid,jdbcType=INTEGER},
+      </if>
+      <if test="isparent != null">
+        IsParent = #{isparent,jdbcType=BIT},
+      </if>
+      <if test="issplit != null">
+        IsSplit = #{issplit,jdbcType=BIT},
+      </if>
+      <if test="isreplenishment != null">
+        IsReplenishment = #{isreplenishment,jdbcType=BIT},
+      </if>
+      <if test="clientip != null">
+        ClientIP = #{clientip,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null">
+        OrderType = #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="issyncorder != null">
+        IsSyncOrder = #{issyncorder,jdbcType=BIT},
+      </if>
+      <if test="usertraceid != null">
+        UserTraceID = #{usertraceid,jdbcType=VARCHAR},
+      </if>
+      <if test="productspecialerid != null">
+        ProductSpecialerID = #{productspecialerid,jdbcType=INTEGER},
+      </if>
+      <if test="isrequestsplit != null">
+        IsRequestSplit = #{isrequestsplit,jdbcType=BIT},
+      </if>
+      <if test="isfedextreace != null">
+        IsFedexTreace = #{isfedextreace,jdbcType=BIT},
+      </if>
+      <if test="paymenttype != null">
+        PaymentType = #{paymenttype,jdbcType=TINYINT},
+      </if>
+      <if test="posttypeoption != null">
+        PostTypeOption = #{posttypeoption,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdetailtype != null">
+        OrderDetailType = #{orderdetailtype,jdbcType=INTEGER},
+      </if>
+      <if test="insystemdatetime != null">
+        InSystemDateTime = #{insystemdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fnprocessingid != null">
+        FNProcessingID = #{fnprocessingid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+      and OrderID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.warehouse.sellercube.server.order.mysql.entity.OrderParent">
+    update orderparent
+    set TraceID = #{traceid,jdbcType=VARCHAR},
+      StateConfigID = #{stateconfigid,jdbcType=INTEGER},
+      SourceStateID = #{sourcestateid,jdbcType=INTEGER},
+      ReceiveName = #{receivename,jdbcType=VARCHAR},
+      CountryID = #{countryid,jdbcType=INTEGER},
+      Country = #{country,jdbcType=VARCHAR},
+      PostID = #{postid,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=LONGVARCHAR},
+      DeliveryDate = #{deliverydate,jdbcType=TIMESTAMP},
+      SendDate = #{senddate,jdbcType=TIMESTAMP},
+      Phone = #{phone,jdbcType=VARCHAR},
+      City = #{city,jdbcType=LONGVARCHAR},
+      County = #{county,jdbcType=LONGVARCHAR},
+      Zip = #{zip,jdbcType=LONGVARCHAR},
+      DeliveryAddress = #{deliveryaddress,jdbcType=VARCHAR},
+      Weight = #{weight,jdbcType=VARCHAR},
+      Freight = #{freight,jdbcType=VARCHAR},
+      TransportWeight = #{transportweight,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      ShippingService = #{shippingservice,jdbcType=VARCHAR},
+      ShipWorksOrder = #{shipworksorder,jdbcType=VARCHAR},
+      IsShipWorksIsDown = #{isshipworksisdown,jdbcType=TINYINT},
+      ShipWorksStoreID = #{shipworksstoreid,jdbcType=VARCHAR},
+      EBayUserID = #{ebayuserid,jdbcType=VARCHAR},
+      EBaysrn = #{ebaysrn,jdbcType=VARCHAR},
+      IsSendMail = #{issendmail,jdbcType=CHAR},
+      OrderParentTagID = #{orderparenttagid,jdbcType=INTEGER},
+      ConfirmedRemarks = #{confirmedremarks,jdbcType=LONGVARCHAR},
+      PayTime = #{paytime,jdbcType=TIMESTAMP},
+      FlytDetailShop = #{flytdetailshop,jdbcType=VARCHAR},
+      SaleCountry = #{salecountry,jdbcType=VARCHAR},
+      SaleTime = #{saletime,jdbcType=TIMESTAMP},
+      CheckOutTime = #{checkouttime,jdbcType=TIMESTAMP},
+      ChangeStateTime = #{changestatetime,jdbcType=TIMESTAMP},
+      SortGenTime = #{sortgentime,jdbcType=TIMESTAMP},
+      ReceiveTime = #{receivetime,jdbcType=TIMESTAMP},
+      BuyerAddress1 = #{buyeraddress1,jdbcType=LONGVARCHAR},
+      BuyerAddress2 = #{buyeraddress2,jdbcType=LONGVARCHAR},
+      UPSReturn = #{upsreturn,jdbcType=VARCHAR},
+      USAWeight = #{usaweight,jdbcType=VARCHAR},
+      IsHoldUp = #{isholdup,jdbcType=BIT},
+      USAparcelSet = #{usaparcelset,jdbcType=CHAR},
+      ShippingAndHanding = #{shippingandhanding,jdbcType=VARCHAR},
+      Insurance = #{insurance,jdbcType=VARCHAR},
+      TotalPrice = #{totalprice,jdbcType=VARCHAR},
+      BatchProcessingID = #{batchprocessingid,jdbcType=VARCHAR},
+      HoldUpReasons = #{holdupreasons,jdbcType=VARCHAR},
+      PaypalTransactionID = #{paypaltransactionid,jdbcType=VARCHAR},
+      ImportDateTime = #{importdatetime,jdbcType=TIMESTAMP},
+      VolumeWeight = #{volumeweight,jdbcType=VARCHAR},
+      Deduct = #{deduct,jdbcType=VARCHAR},
+      CostPrice = #{costprice,jdbcType=VARCHAR},
+      ProfitReport = #{profitreport,jdbcType=VARCHAR},
+      Ups3DaysType = #{ups3daystype,jdbcType=VARCHAR},
+      IsDelivery = #{isdelivery,jdbcType=CHAR},
+      PakePrice = #{pakeprice,jdbcType=VARCHAR},
+      Inside = #{inside,jdbcType=VARCHAR},
+      UspsPostageAmount = #{uspspostageamount,jdbcType=VARCHAR},
+      UspsInsuredValue = #{uspsinsuredvalue,jdbcType=VARCHAR},
+      UspsInsuranceFee = #{uspsinsurancefee,jdbcType=VARCHAR},
+      FlytuserID = #{flytuserid,jdbcType=VARCHAR},
+      ProcessCenterID = #{processcenterid,jdbcType=INTEGER},
+      SellerCubePNO = #{sellercubepno,jdbcType=VARCHAR},
+      IsRepeatSend = #{isrepeatsend,jdbcType=BIT},
+      Setting = #{setting,jdbcType=VARCHAR},
+      TrackingNO = #{trackingno,jdbcType=VARCHAR},
+      TrackingRemark = #{trackingremark,jdbcType=VARCHAR},
+      PackErrorInfor = #{packerrorinfor,jdbcType=LONGVARCHAR},
+      PackSubmitInfor = #{packsubmitinfor,jdbcType=LONGVARCHAR},
+      PackPrintInfor = #{packprintinfor,jdbcType=LONGVARCHAR},
+      PakeageID = #{pakeageid,jdbcType=VARCHAR},
+      UspsReturnFreight = #{uspsreturnfreight,jdbcType=DECIMAL},
+      SetToProcessingTime = #{settoprocessingtime,jdbcType=TIMESTAMP},
+      Location = #{location,jdbcType=VARCHAR},
+      InPrice = #{inprice,jdbcType=DECIMAL},
+      IsPPAddress = #{isppaddress,jdbcType=BIT},
+      IsEBayAPIdownload = #{isebayapidownload,jdbcType=BIT},
+      ReceiveFreightUser = #{receivefreightuser,jdbcType=VARCHAR},
+      ReceiveFreightPlace = #{receivefreightplace,jdbcType=VARCHAR},
+      ErrorCode = #{errorcode,jdbcType=LONGVARCHAR},
+      MoneryType = #{monerytype,jdbcType=VARCHAR},
+      UspsReturnDataTime = #{uspsreturndatatime,jdbcType=TIMESTAMP},
+      ShelfNo = #{shelfno,jdbcType=VARCHAR},
+      Point = #{point,jdbcType=VARCHAR},
+      DeductProcess = #{deductprocess,jdbcType=VARCHAR},
+      DeliveryUser = #{deliveryuser,jdbcType=VARCHAR},
+      PPNotes = #{ppnotes,jdbcType=LONGVARCHAR},
+      Affiliate = #{affiliate,jdbcType=VARCHAR},
+      IsPPAudit = #{isppaudit,jdbcType=BIT},
+      ProductManagerID = #{productmanagerid,jdbcType=INTEGER},
+      IsParent = #{isparent,jdbcType=BIT},
+      IsSplit = #{issplit,jdbcType=BIT},
+      IsReplenishment = #{isreplenishment,jdbcType=BIT},
+      ClientIP = #{clientip,jdbcType=VARCHAR},
+      OrderType = #{ordertype,jdbcType=VARCHAR},
+      IsSyncOrder = #{issyncorder,jdbcType=BIT},
+      UserTraceID = #{usertraceid,jdbcType=VARCHAR},
+      ProductSpecialerID = #{productspecialerid,jdbcType=INTEGER},
+      IsRequestSplit = #{isrequestsplit,jdbcType=BIT},
+      IsFedexTreace = #{isfedextreace,jdbcType=BIT},
+      PaymentType = #{paymenttype,jdbcType=TINYINT},
+      PostTypeOption = #{posttypeoption,jdbcType=VARCHAR},
+      OrderDetailType = #{orderdetailtype,jdbcType=INTEGER},
+      InSystemDateTime = #{insystemdatetime,jdbcType=TIMESTAMP},
+      FNProcessingID = #{fnprocessingid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+      and OrderID = #{orderid,jdbcType=VARCHAR}
+  </update>
+</mapper>

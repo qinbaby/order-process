@@ -27,25 +27,24 @@ public class LogRecord {
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
     @Pointcut("execution(public * com.warehouse.sellercube.rest.*.*(..))")
-    public void log(){}
+    public void log() {
+    }
 
 
     @Before("log()")
-    public void before(JoinPoint joinPoint)throws Exception{
+    public void before(JoinPoint joinPoint) throws Exception {
         startTime.set(System.currentTimeMillis());
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        logger.info("request url=> : " + request.getRequestURL().toString());
-        logger.info("http_method=> : " + request.getMethod());
-        logger.info("IP=> : " + request.getRemoteAddr());
-        logger.info("class_method=> : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.info("args=> : " + Arrays.toString(joinPoint.getArgs()));
+        logger.info("{request url : " + request.getRequestURL().toString() + "\nhttp_method : " + request.getMethod()
+                + "\nIP : " + request.getRemoteAddr() + "\nclass_method : "
+                + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "\nargs : "
+                + Arrays.toString(joinPoint.getArgs())+"}");
     }
 
     @AfterReturning(returning = "ret", pointcut = "log()")
     public void doAfterReturning(Object ret) throws Throwable {
-        logger.info("result=> : " + ret);
-        logger.info("spend time=> : " + (System.currentTimeMillis() - startTime.get())+" milliseconds");
+        logger.info("{result : " + ret + "\nspend time : " + (System.currentTimeMillis() - startTime.get()) + " milliseconds}");
     }
 }
 

@@ -1,7 +1,8 @@
 package com.warehouse.sellercube.rest;
 
-import com.warehouse.sellercube.JMS.Sender;
+import com.warehouse.sellercube.JMS.queue1.Sender1;
 import com.warehouse.sellercube.common.entity.Result;
+import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
 import com.warehouse.sellercube.utils.ResultUtil;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     @Autowired
-    private Sender sender;
+    private Sender1 sender;
 
     @GetMapping("/send")
     public Result send(){
-        sender.send();
+        sender.send(new OrderParent());
         return ResultUtil.success("嘿嘿嘿");
     }
 

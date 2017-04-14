@@ -8,6 +8,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +23,10 @@ import org.springframework.context.annotation.Scope;
 public class RabbitConfig {
 
     public static final String EXCHANGE   = "chenjing-exchange";
-    public static final String ROUTINGKEY = "chenjing-routingKey";
-    public static final String QUEUE="chenjing-queue";
+    public static final String ROUTINGKEY1 = "routingKey1";
+    public static final String ROUTINGKEY2 = "routingKey2";
+    public static final String QUEUE1="queue1";
+    public static final String QUEUE2="queue2";
 
     @Value("${rabbit.address}")
     private String address;
@@ -52,8 +55,12 @@ public class RabbitConfig {
 
 
     @Bean
-    public Queue queue() {
-        return new Queue(QUEUE,true);//队列持久
+    public Queue queue1() {
+        return new Queue(QUEUE1,true);//队列持久
+    }
+    @Bean
+    public Queue queue2() {
+        return new Queue(QUEUE2,true);//队列持久
     }
 
     /**
@@ -73,8 +80,13 @@ public class RabbitConfig {
      * @return binding
      */
     @Bean
-    public Binding binding() {
-        return BindingBuilder.bind(this.queue()).to(this.defaultExchange()).with(this.ROUTINGKEY);
+    public Binding binding(@Qualifier("queue1") Queue queue) {
+        return BindingBuilder.bind(queue).to(this.defaultExchange()).with(this.ROUTINGKEY1);
+    }
+
+    @Bean
+    public Binding binding2(@Qualifier("queue2") Queue queue) {
+        return BindingBuilder.bind(queue).to(this.defaultExchange()).with(this.ROUTINGKEY2);
     }
 
 /*    @Bean

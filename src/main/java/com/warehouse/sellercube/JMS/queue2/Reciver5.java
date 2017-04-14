@@ -1,6 +1,7 @@
-package com.warehouse.sellercube.JMS;
+package com.warehouse.sellercube.JMS.queue2;
 
 import com.warehouse.sellercube.config.RabbitConfig;
+import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -13,15 +14,15 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@RabbitListener(queues = RabbitConfig.QUEUE)
+@RabbitListener(queues = RabbitConfig.QUEUE2)
 @Async
-public class Reciver {
+public class Reciver5 {
 
-    private static final Logger log= LoggerFactory.getLogger(Reciver.class);
+    private static final Logger log= LoggerFactory.getLogger(Reciver5.class);
 
     @RabbitHandler
-    public void process(String hello) {
-       log.info("第一个消费者正在处理=》" + hello);
+    public void process(OrderParent orderParent) {
+       log.info("第五个消费者正在处理=》" + orderParent);
     }
 }
 

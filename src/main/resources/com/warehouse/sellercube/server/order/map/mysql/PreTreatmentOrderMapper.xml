@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warehouse.sellercube.server.order.mysql.mapper.PreTreatmentOrderMapper">
+  <resultMap id="BaseResultMap" type="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="OriginalPostID" jdbcType="VARCHAR" property="originalpostid" />
+    <result column="NewPostID" jdbcType="VARCHAR" property="newpostid" />
+    <result column="OriginalWeight" jdbcType="DECIMAL" property="originalweight" />
+    <result column="NewFreight" jdbcType="DECIMAL" property="newfreight" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="TraceID" jdbcType="VARCHAR" property="traceid" />
+    <result column="UrlFile" jdbcType="LONGVARCHAR" property="urlfile" />
+    <result column="IsReturn" jdbcType="BIT" property="isreturn" />
+    <result column="ErrorCode" jdbcType="INTEGER" property="errorcode" />
+    <result column="ErrorDesc" jdbcType="LONGVARCHAR" property="errordesc" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="IsNormalCheck" jdbcType="BIT" property="isnormalcheck" />
+    <result column="IsApiCheck" jdbcType="BIT" property="isapicheck" />
+    <result column="NCRetryCount" jdbcType="INTEGER" property="ncretrycount" />
+    <result column="ApiRetryCount" jdbcType="INTEGER" property="apiretrycount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, OrderID, OriginalPostID, NewPostID, OriginalWeight, NewFreight, CreateTime, State, 
+    TraceID, UrlFile, IsReturn, ErrorCode, ErrorDesc, LastUpdateTime, Remark, IsNormalCheck, 
+    IsApiCheck, NCRetryCount, ApiRetryCount
+  </sql>
+    <select id="getPreTreatmentOrdersByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      SELECT  <include refid="Base_Column_List" /> FROM pretreatmentorder WHERE state=#{state}
+    </select>
+
+  <update id="updateByOrderid" parameterType="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    update pretreatmentorder
+    <set>
+      <if test="originalpostid != null">
+        OriginalPostID = #{originalpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="newpostid != null">
+        NewPostID = #{newpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="originalweight != null">
+        OriginalWeight = #{originalweight,jdbcType=DECIMAL},
+      </if>
+      <if test="newfreight != null">
+        NewFreight = #{newfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="traceid != null">
+        TraceID = #{traceid,jdbcType=VARCHAR},
+      </if>
+      <if test="urlfile != null">
+        UrlFile = #{urlfile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isreturn != null">
+        IsReturn = #{isreturn,jdbcType=BIT},
+      </if>
+      <if test="errorcode != null">
+        ErrorCode = #{errorcode,jdbcType=INTEGER},
+      </if>
+      <if test="errordesc != null">
+        ErrorDesc = #{errordesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isnormalcheck != null">
+        IsNormalCheck = #{isnormalcheck,jdbcType=BIT},
+      </if>
+      <if test="isapicheck != null">
+        IsApiCheck = #{isapicheck,jdbcType=BIT},
+      </if>
+      <if test="ncretrycount != null">
+        NCRetryCount = #{ncretrycount,jdbcType=INTEGER},
+      </if>
+      <if test="apiretrycount != null">
+        ApiRetryCount = #{apiretrycount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where OrderID = #{orderid,jdbcType=VARCHAR}
+  </update>
+
+
+
+  <!--分割 -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pretreatmentorder
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pretreatmentorder
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    insert into pretreatmentorder (ID, OrderID, OriginalPostID, 
+      NewPostID, OriginalWeight, NewFreight, 
+      CreateTime, State, TraceID, 
+      UrlFile, IsReturn, ErrorCode, 
+      ErrorDesc, LastUpdateTime, Remark, 
+      IsNormalCheck, IsApiCheck, NCRetryCount,
+      ApiRetryCount)
+    values (#{id,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{originalpostid,jdbcType=VARCHAR}, 
+      #{newpostid,jdbcType=VARCHAR}, #{originalweight,jdbcType=DECIMAL}, #{newfreight,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{traceid,jdbcType=VARCHAR}, 
+      #{urlfile,jdbcType=LONGVARCHAR}, #{isreturn,jdbcType=BIT}, #{errorcode,jdbcType=INTEGER},
+      #{errordesc,jdbcType=LONGVARCHAR}, #{lastupdatetime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
+      #{isnormalcheck,jdbcType=BIT}, #{isapicheck,jdbcType=BIT}, #{ncretrycount,jdbcType=INTEGER}, 
+      #{apiretrycount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    insert into pretreatmentorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="originalpostid != null">
+        OriginalPostID,
+      </if>
+      <if test="newpostid != null">
+        NewPostID,
+      </if>
+      <if test="originalweight != null">
+        OriginalWeight,
+      </if>
+      <if test="newfreight != null">
+        NewFreight,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="traceid != null">
+        TraceID,
+      </if>
+      <if test="urlfile != null">
+        UrlFile,
+      </if>
+      <if test="isreturn != null">
+        IsReturn,
+      </if>
+      <if test="errorcode != null">
+        ErrorCode,
+      </if>
+      <if test="errordesc != null">
+        ErrorDesc,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="isnormalcheck != null">
+        IsNormalCheck,
+      </if>
+      <if test="isapicheck != null">
+        IsApiCheck,
+      </if>
+      <if test="ncretrycount != null">
+        NCRetryCount,
+      </if>
+      <if test="apiretrycount != null">
+        ApiRetryCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="originalpostid != null">
+        #{originalpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="newpostid != null">
+        #{newpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="originalweight != null">
+        #{originalweight,jdbcType=DECIMAL},
+      </if>
+      <if test="newfreight != null">
+        #{newfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="traceid != null">
+        #{traceid,jdbcType=VARCHAR},
+      </if>
+      <if test="urlfile != null">
+        #{urlfile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isreturn != null">
+        #{isreturn,jdbcType=BIT},
+      </if>
+      <if test="errorcode != null">
+        #{errorcode,jdbcType=INTEGER},
+      </if>
+      <if test="errordesc != null">
+        #{errordesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isnormalcheck != null">
+        #{isnormalcheck,jdbcType=BIT},
+      </if>
+      <if test="isapicheck != null">
+        #{isapicheck,jdbcType=BIT},
+      </if>
+      <if test="ncretrycount != null">
+        #{ncretrycount,jdbcType=INTEGER},
+      </if>
+      <if test="apiretrycount != null">
+        #{apiretrycount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    update pretreatmentorder
+    <set>
+      <if test="orderid != null">
+        OrderID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="originalpostid != null">
+        OriginalPostID = #{originalpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="newpostid != null">
+        NewPostID = #{newpostid,jdbcType=VARCHAR},
+      </if>
+      <if test="originalweight != null">
+        OriginalWeight = #{originalweight,jdbcType=DECIMAL},
+      </if>
+      <if test="newfreight != null">
+        NewFreight = #{newfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="traceid != null">
+        TraceID = #{traceid,jdbcType=VARCHAR},
+      </if>
+      <if test="urlfile != null">
+        UrlFile = #{urlfile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isreturn != null">
+        IsReturn = #{isreturn,jdbcType=BIT},
+      </if>
+      <if test="errorcode != null">
+        ErrorCode = #{errorcode,jdbcType=INTEGER},
+      </if>
+      <if test="errordesc != null">
+        ErrorDesc = #{errordesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isnormalcheck != null">
+        IsNormalCheck = #{isnormalcheck,jdbcType=BIT},
+      </if>
+      <if test="isapicheck != null">
+        IsApiCheck = #{isapicheck,jdbcType=BIT},
+      </if>
+      <if test="ncretrycount != null">
+        NCRetryCount = #{ncretrycount,jdbcType=INTEGER},
+      </if>
+      <if test="apiretrycount != null">
+        ApiRetryCount = #{apiretrycount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder">
+    update pretreatmentorder
+    set OrderID = #{orderid,jdbcType=VARCHAR},
+      OriginalPostID = #{originalpostid,jdbcType=VARCHAR},
+      NewPostID = #{newpostid,jdbcType=VARCHAR},
+      OriginalWeight = #{originalweight,jdbcType=DECIMAL},
+      NewFreight = #{newfreight,jdbcType=DECIMAL},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      State = #{state,jdbcType=INTEGER},
+      TraceID = #{traceid,jdbcType=VARCHAR},
+      UrlFile = #{urlfile,jdbcType=LONGVARCHAR},
+      IsReturn = #{isreturn,jdbcType=BIT},
+      ErrorCode = #{errorcode,jdbcType=INTEGER},
+      ErrorDesc = #{errordesc,jdbcType=LONGVARCHAR},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR},
+      IsNormalCheck = #{isnormalcheck,jdbcType=BIT},
+      IsApiCheck = #{isapicheck,jdbcType=BIT},
+      NCRetryCount = #{ncretrycount,jdbcType=INTEGER},
+      ApiRetryCount = #{apiretrycount,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
