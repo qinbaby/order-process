@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 /**
  * 监听队列1，把orderparent表的订单拿过来处理，然后处理完一条直接发送给队列2
  */
-@Component
+@Component("queue1Rec1")
 @RabbitListener(queues = RabbitConfig.QUEUE1)
 @Async
 public class Reciver1 {

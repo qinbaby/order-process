@@ -32,4 +32,6 @@ public interface PreTreatmentOrderMapper {
      * @param preTreatmentOrder
      */
     int updateByOrderid(PreTreatmentOrder preTreatmentOrder);
+
+    int countByOrderId(String orderId);
 }

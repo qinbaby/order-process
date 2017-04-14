@@ -26,8 +26,15 @@ public class Process1 {
     @Autowired
     private Sender2 sender;
 
-    public void processing(OrderParent orderParent){
-        //预留一个第三方接口，假如拿到了
+    public void processing(OrderParent orderParent) {
+        int count = preTreatmentOrderService.countByOrderId(orderParent.getOrderid());
+        if (count >= 1) {
+            log.error("该订单{}已经处理过一次了，不再进行处理", orderParent.getOrderid());
+            //TODO sqlserver or orderparent 状态直接设置为0
+            return;
+        }
+
+        //todo 预留一个第三方接口，假如拿到了
         PreTreatmentOrder record = new PreTreatmentOrder();
         record.setCreatetime(new Date());
         record.setState(0);
@@ -36,10 +43,16 @@ public class Process1 {
         record.setOriginalpostid(orderParent.getPostid());
         BigDecimal weight = new BigDecimal(orderParent.getWeight());
         record.setOriginalweight(weight);
-        if (1 == preTreatmentOrderService.insertSelective(record)) {
+        int result = 0;
+        try {
+            result = preTreatmentOrderService.insertSelective(record);
+        } catch (Exception e) {
+            log.error("订单{}处理失败，详细信息{}", orderParent.getOrderid(), e.getMessage());
+        }
+        if (1 == result) {
             sender.send(record);
         } else {
-            log.error("订单ID为{}的处理失败，详细信息【插入到preTreatmentOrder表未成功】", orderParent.getOrderid());
+            log.error("订单{}处理失败，详细信息【插入到preTreatmentOrder表未成功】", orderParent.getOrderid());
         }
     }
 }

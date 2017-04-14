@@ -2,7 +2,6 @@ package com.warehouse.sellercube.JMS.queue2;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder;
-import com.warehouse.sellercube.server.order.mysql.service.PreTreatmentOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -26,11 +25,11 @@ public class Reciver1 {
     private static final Logger log = LoggerFactory.getLogger(Reciver1.class);
 
     @Autowired
-    private PreTreatmentOrderService preTreatmentOrderService;
+    private Process2 process2;
 
     @RabbitHandler
     public synchronized void process(PreTreatmentOrder preTreatmentOrder) {
-
+        process2.processing(preTreatmentOrder);
     }
 }
 

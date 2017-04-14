@@ -38,11 +38,11 @@ public class OrderParentJob {
          * 那么autowired的bean便无法注入进来，所以加上下面这段话
          */
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
-        List<OrderParent> orderParents = orderParentMapper.getOrderParentsByState(-3);
+        List<OrderParent> orderParents = orderParentMapper.getOrderParentsByState(33);
         if (null != orderParents && !orderParents.isEmpty()) {
             orderParents.parallelStream().forEach(x -> sender.send(x));
         } else {
-            log.info("当前orderparent表没有符合条件状态为-3的记录，时间：{}", new Date());
+            log.info("当前orderparent表没有符合条件状态为33的记录，时间：{}", new Date());
         }
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by chenjing on 2017/4/11.*/
 
 
-@Component
+@Component("queue1Rec3")
 @RabbitListener(queues = RabbitConfig.QUEUE1)
 @Async
 public class Reciver3 {

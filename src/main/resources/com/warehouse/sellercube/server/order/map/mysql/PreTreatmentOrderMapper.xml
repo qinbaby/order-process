@@ -88,7 +88,10 @@
     </set>
     where OrderID = #{orderid,jdbcType=VARCHAR}
   </update>
+<select id="countByOrderId" resultType="java.lang.Integer">
+  SELECT count(*) FROM pretreatmentorder WHERE OrderID=#{orderId}
 
+</select>
 
 
   <!--分割 -->

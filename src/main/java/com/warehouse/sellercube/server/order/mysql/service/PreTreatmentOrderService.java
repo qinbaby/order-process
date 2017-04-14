@@ -16,4 +16,6 @@ public interface PreTreatmentOrderService {
     int insertSelective(PreTreatmentOrder preTreatmentOrder);
 
     int updateByOrderid(PreTreatmentOrder preTreatmentOrder);
+
+    int countByOrderId(String orderId);
 }

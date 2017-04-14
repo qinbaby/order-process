@@ -36,4 +36,9 @@ public class PreTreatmentOrderServiceImpl implements PreTreatmentOrderService {
     public int updateByOrderid(PreTreatmentOrder preTreatmentOrder) {
         return preTreatmentOrderMapper.updateByOrderid(preTreatmentOrder);
     }
+
+    @Override
+    public int countByOrderId(String orderId) {
+        return preTreatmentOrderMapper.countByOrderId(orderId);
+    }
 }

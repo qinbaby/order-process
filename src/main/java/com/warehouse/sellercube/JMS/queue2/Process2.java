@@ -24,8 +24,34 @@ public class Process2 {
     private OrderParentService orderParentService;
 
     public void processing(PreTreatmentOrder preTreatmentOrder) {
-        //模拟第三方接口
+        //todo api check something
 
+        if (true) {
+
+        } else {
+            //if api check fail,then will try three times
+            //todo something
+            for (int i = 1; i <= 3; i++) {
+                preTreatmentOrder.setApiretrycount(i);
+
+            }
+        }
+
+
+        //todo normal check something
+
+        if (true) {
+
+        } else {
+            //if normal check fail,then will try three times
+            //todo something
+            for (int i = 1; i <= 3; i++) {
+                preTreatmentOrder.setNcretrycount(i);
+            }
+        }
+
+        //处理完成
+        this.complete(preTreatmentOrder);
     }
 
     /**
@@ -37,6 +63,6 @@ public class Process2 {
     public void complete(PreTreatmentOrder preTreatmentOrder) {
         preTreatmentOrder.setState(2);
         preTreatmentOrderService.updateByOrderid(preTreatmentOrder);
-        orderParentService.updateSourceStateIdByOrderid(2, preTreatmentOrder.getOrderid());
+        orderParentService.updateSourceStateIdByOrderid(33, preTreatmentOrder.getOrderid());
     }
 }
