@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue1;
+package com.warehouse.sellercube.jms.queue1;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
@@ -7,15 +7,15 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-
-/**
+/*
+*
  * Created by chenjing on 2017/4/11.*/
 
 
-@Component("queue1Rec4")
+@Component("queue1Rec3")
 @RabbitListener(queues = RabbitConfig.QUEUE1)
 @Async
-public class Reciver4 {
+public class Reciver3 {
 
     @Autowired
     private Process1 process;

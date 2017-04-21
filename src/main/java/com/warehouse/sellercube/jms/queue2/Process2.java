@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue2;
+package com.warehouse.sellercube.jms.queue2;
 
 import com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder;
 import com.warehouse.sellercube.server.order.mysql.service.OrderParentService;
@@ -55,14 +55,13 @@ public class Process2 {
     }
 
     /**
-     * 该方法代表所有的都执行完毕
+     * 该方法执行最后一步操作
      *
      * @param preTreatmentOrder
      */
     @Transactional
     public void complete(PreTreatmentOrder preTreatmentOrder) {
-        preTreatmentOrder.setState(2);
-        preTreatmentOrderService.updateByOrderid(preTreatmentOrder);
+        preTreatmentOrderService.insertSelective(preTreatmentOrder);
         orderParentService.updateSourceStateIdByOrderid(33, preTreatmentOrder.getOrderid());
     }
 }

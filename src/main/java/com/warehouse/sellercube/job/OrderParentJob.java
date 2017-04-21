@@ -1,6 +1,6 @@
 package com.warehouse.sellercube.job;
 
-import com.warehouse.sellercube.JMS.queue1.Sender1;
+import com.warehouse.sellercube.jms.queue1.Sender1;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
 import com.warehouse.sellercube.server.order.mysql.mapper.OrderParentMapper;
 import org.slf4j.Logger;

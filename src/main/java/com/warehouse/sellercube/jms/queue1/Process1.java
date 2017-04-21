@@ -1,6 +1,6 @@
-package com.warehouse.sellercube.JMS.queue1;
+package com.warehouse.sellercube.jms.queue1;
 
-import com.warehouse.sellercube.JMS.queue2.Sender2;
+import com.warehouse.sellercube.jms.queue2.Sender2;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
 import com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder;
 import com.warehouse.sellercube.server.order.mysql.service.PreTreatmentOrderService;
@@ -43,16 +43,11 @@ public class Process1 {
         record.setOriginalpostid(orderParent.getPostid());
         BigDecimal weight = new BigDecimal(orderParent.getWeight());
         record.setOriginalweight(weight);
-        int result = 0;
         try {
-            result = preTreatmentOrderService.insertSelective(record);
-        } catch (Exception e) {
-            log.error("订单{}处理失败，详细信息{}", orderParent.getOrderid(), e.getMessage());
-        }
-        if (1 == result) {
             sender.send(record);
-        } else {
-            log.error("订单{}处理失败，详细信息【插入到preTreatmentOrder表未成功】", orderParent.getOrderid());
+        }catch (Exception e){
+            log.error("发送到队列2失败,失败信息：{}",e.getMessage());
         }
+
     }
 }

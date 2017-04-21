@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue1;
+package com.warehouse.sellercube.jms.queue1;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
@@ -12,13 +12,10 @@ import org.springframework.stereotype.Component;
  * Created by chenjing on 2017/4/11.
  */
 
-/**
- * 监听队列1，把orderparent表的订单拿过来处理，然后处理完一条直接发送给队列2
- */
-@Component("queue1Rec1")
+@Component("queue1Rec5")
 @RabbitListener(queues = RabbitConfig.QUEUE1)
 @Async
-public class Reciver1 {
+public class Reciver5 {
 
     @Autowired
     private Process1 process;

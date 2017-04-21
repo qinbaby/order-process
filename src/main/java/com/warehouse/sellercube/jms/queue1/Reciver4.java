@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue1;
+package com.warehouse.sellercube.jms.queue1;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
@@ -9,13 +9,13 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by chenjing on 2017/4/11.
- */
+ * Created by chenjing on 2017/4/11.*/
 
-@Component("queue1Rec5")
+
+@Component("queue1Rec4")
 @RabbitListener(queues = RabbitConfig.QUEUE1)
 @Async
-public class Reciver5 {
+public class Reciver4 {
 
     @Autowired
     private Process1 process;
@@ -30,4 +30,3 @@ public class Reciver5 {
         process.processing(orderParent);
     }
 }
-

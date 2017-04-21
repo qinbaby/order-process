@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue2;
+package com.warehouse.sellercube.jms.queue2;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.PreTreatmentOrder;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RabbitListener(queues = RabbitConfig.QUEUE2)
 @Async
-public class Reciver1 {
+public class Reciver3 {
 
     private static final Logger log = LoggerFactory.getLogger(Reciver1.class);
 

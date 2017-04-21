@@ -1,4 +1,4 @@
-package com.warehouse.sellercube.JMS.queue1;
+package com.warehouse.sellercube.jms.queue1;
 
 import com.warehouse.sellercube.config.RabbitConfig;
 import com.warehouse.sellercube.server.order.mysql.entity.OrderParent;
